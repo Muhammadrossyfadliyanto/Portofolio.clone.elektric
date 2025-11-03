@@ -1,1 +1,381 @@
-i
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ElectroMaker - Clone (Demo)</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Font (similar feel) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green-top: #15b37a;    /* top thin bar */
+      --navy: #0e3a53;         /* main nav */
+      --accent-green: #14b06f; /* promo green */
+      --light-gray: #f2f4f6;
+      --muted: #6c7a86;
+      --card-radius: 10px;
+    }
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #ffffff;
+      color: #222;
+    }
+
+    /* top tiny bar */
+    .top-strip{
+      background: var(--green-top);
+      color: #003b2e;
+      font-size: 14px;
+      padding: 6px 0;
+      text-align:center;
+      font-weight:600;
+    }
+
+    /* navbar */
+    .site-nav{
+      background: var(--navy);
+      color: #fff;
+      padding: 18px 0;
+    }
+    .site-nav .navbar-brand{
+      color: #ffffff;
+      font-weight:700;
+      font-size: 24px;
+      letter-spacing: 0.2px;
+    }
+    .site-nav .logo-accent{
+      color: #6be3a8;
+      font-weight:700;
+    }
+    /* search */
+    .search-bar{
+      max-width: 720px;
+      margin: 18px auto;
+    }
+
+    /* brand row */
+    .brands-row{
+      background: transparent;
+      padding: 18px 0;
+      border-top:1px solid #e6e9eb;
+      border-bottom:1px solid #e6e9eb;
+    }
+    .brands-row img{ height:28px; opacity:0.9; }
+
+    /* categories row */
+    .categories .cat-img{
+      width:160px;
+      height:120px;
+      object-fit:contain;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.06));
+    }
+    .categories .cat-title{
+      color: #375567;
+      margin-top:12px;
+      font-size:15px;
+      text-align:center;
+    }
+
+    /* hero big card */
+    .hero-card{
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(90deg,#8f2a70 0%, #ff6f3b 60%);
+      color:#fff;
+      padding:28px;
+      min-height:260px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .hero-card .hero-left h4{ font-size:18px; opacity:0.9; margin-bottom:10px; }
+    .hero-card .hero-left h2{ font-size:28px; margin-bottom:14px; font-weight:700; }
+    .hero-card .hero-left .btn{ background:rgba(0,0,0,0.12); border:0; color:#fff; padding:10px 16px; border-radius:40px; }
+
+    /* product cards carousel */
+    .product-card{
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(19, 22, 25, 0.04);
+      background: #fff;
+      padding: 10px;
+      margin: 8px;
+      min-width: 210px;
+      max-width: 230px;
+    }
+    .product-card .p-img{
+      height:92px;
+      object-fit:cover;
+      border-radius:6px;
+      width:100%;
+    }
+    .product-card .p-title{
+      font-size:13px;
+      color:#304a5a;
+      margin-top:8px;
+      min-height:36px;
+    }
+    .product-card .p-price{
+      color:#0a6e4f;
+      font-weight:700;
+      margin-top:6px;
+      font-size:14px;
+    }
+
+    /* promo green block */
+    .promo-block{
+      background: var(--accent-green);
+      color:#fff;
+      border-radius: 12px;
+      padding: 24px;
+      min-height: 320px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      overflow:hidden;
+    }
+    .promo-block h2{ font-size:34px; line-height:1; margin:0 0 8px 0; }
+    .promo-block p{ opacity:0.95; margin-bottom:14px; }
+
+    /* small adjustments */
+    .section-space{ padding:40px 0; }
+    hr.section-divider{ border-top:1px solid #e6e9eb; margin: 22px 0; }
+    .carousel-controls .bi{ font-size:24px; color:#888; }
+    .rounded-card{ border-radius: 12px; }
+
+    @media (max-width: 768px){
+      .hero-card{ flex-direction:column; gap:16px; padding:20px; min-height:220px; }
+      .promo-block{ flex-direction:column; text-align:center; min-height:260px; }
+      .search-bar{ padding:0 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top thin bar -->
+  <div class="top-strip">We typically ship your component the same day*</div>
+
+  <!-- NAV -->
+  <header class="site-nav">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg p-0">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <span style="display:inline-block; margin-right:8px;">
+            <!-- simple cart icon -->
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="6" fill="#0b3a4b"/>
+              <path d="M7 9h10l-1.2 6.2a2 2 0 0 1-2 1.6H10.2a2 2 0 0 1-2-1.6L7 9z" fill="#00d07a" opacity="0.95"/>
+            </svg>
+          </span>
+          <span>electro<span class="logo-accent">{maker}</span></span>
+        </a>
+
+        <div class="ms-auto d-flex align-items-center gap-3">
+          <button class="btn btn-outline-light btn-sm d-none d-lg-inline"><i class="bi bi-cart"></i></button>
+          <button class="btn btn-outline-light btn-sm d-none d-lg-inline"><i class="bi bi-list"></i></button>
+        </div>
+      </nav>
+
+      <!-- Search bar -->
+      <div class="search-bar mx-auto mt-3">
+        <div class="input-group shadow-sm">
+          <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+          <input class="form-control border-start-0" type="search" placeholder="Search for a product or part number" aria-label="Search">
+          <button class="btn btn-outline-secondary">Search</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Brand icons row -->
+  <div class="brands-row">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="d-flex gap-4 align-items-center py-2">
+          <!-- placeholder brand images -->
+          <img src="https://via.placeholder.com/120x28?text=Arduino" alt="arduino">
+          <img src="https://via.placeholder.com/90x28?text=Adafruit" alt="adafruit">
+          <img src="https://via.placeholder.com/90x28?text=MSSTACK" alt="msstack">
+          <img src="https://via.placeholder.com/90x28?text=Seeed" alt="seeed">
+          <img src="https://via.placeholder.com/90x28?text=Raspberry" alt="raspberry">
+        </div>
+        <div class="text-muted d-none d-md-inline">Trusted maker brands</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- small tagline -->
+    <div class="section-space text-center">
+      <h3 style="font-weight:600; color:#2f4f63;">Much more than a component shop we're a <span style="color:#1e6b8a;">Maker Community</span></h3>
+    </div>
+
+    <!-- categories row -->
+    <div class="row categories text-center mb-4">
+      <div class="col-4 d-flex flex-column align-items-center">
+        <img src="https://via.placeholder.com/160x120?text=Sensor" class="cat-img" alt="">
+        <div class="cat-title">Sensor Development Tools</div>
+      </div>
+      <div class="col-4 d-flex flex-column align-items-center">
+        <img src="https://via.placeholder.com/160x120?text=Audio" class="cat-img" alt="">
+        <div class="cat-title">Audio Development Tools</div>
+      </div>
+      <div class="col-4 d-flex flex-column align-items-center">
+        <img src="https://via.placeholder.com/160x120?text=WiFi" class="cat-img" alt="">
+        <div class="cat-title">WiFi Development Tools</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- HERO + Product carousel row -->
+    <div class="row gx-4 align-items-start">
+      <div class="col-lg-8 mb-4">
+        <!-- hero carousel (single big card) -->
+        <div id="heroCarousel" class="carousel slide rounded-card" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="hero-card d-flex">
+                <div class="hero-left">
+                  <h4>Product of the Week</h4>
+                  <h2>Gravity Voice Module for Arduino, ESP32, and micro:bit</h2>
+                  <button class="btn btn-sm">Watch now!</button>
+                </div>
+                <div class="hero-right d-none d-md-block">
+                  <!-- sample product image -->
+                  <img src="https://via.placeholder.com/260x200?text=Board" alt="board" style="height:200px; object-fit:contain; border-radius:10px;">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="hero-card d-flex" style="background: linear-gradient(90deg,#093a63 0%, #00b4a2 60%);">
+                <div>
+                  <h4>New</h4>
+                  <h2>Featured Development Kits</h2>
+                  <button class="btn btn-sm">Browse kits</button>
+                </div>
+                <div class="d-none d-md-block">
+                  <img src="https://via.placeholder.com/260x200?text=Kits" alt="kit" style="height:200px; object-fit:contain; border-radius:10px;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <!-- product slider (cards) -->
+        <div class="mt-4">
+          <div id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+            <div class="carousel-inner">
+              <!-- carousel page 1 -->
+              <div class="carousel-item active">
+                <div class="d-flex">
+                  <div class="product-card">
+                    <img class="p-img" src="https://via.placeholder.com/300x180?text=Prod1" alt="">
+                    <div class="p-title">The ESP32-S3-BOX-3 is a next-generation development tool...</div>
+                    <div class="p-price">$43.75</div>
+                  </div>
+                  <div class="product-card">
+                    <img class="p-img" src="https://via.placeholder.com/300x180?text=Prod2" alt="">
+                    <div class="p-title">Plug and Make Kit</div>
+                    <div class="p-price">$99.14</div>
+                  </div>
+                  <div class="product-card">
+                    <img class="p-img" src="https://via.placeholder.com/300x180?text=Prod3" alt="">
+                    <div class="p-title">Espressif ESP32-S3-BOX-3B</div>
+                    <div class="p-price">$59.38</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- carousel page 2 -->
+              <div class="carousel-item">
+                <div class="d-flex">
+                  <div class="product-card">
+                    <img class="p-img" src="https://via.placeholder.com/300x180?text=Prod4" alt="">
+                    <div class="p-title">USB Camera Module</div>
+                    <div class="p-price">$27.50</div>
+                  </div>
+                  <div class="product-card">
+                    <img class="p-img" src="https://via.placeholder.com/300x180?text=Prod5" alt="">
+                    <div class="p-title">Development Board Mini</div>
+                    <div class="p-price">$12.25</div>
+                  </div>
+                  <div class="product-card">
+                    <img class="p-img" src="https://via.placeholder.com/300x180?text=Prod6" alt="">
+                    <div class="p-title">Wireless Module</div>
+                    <div class="p-price">$34.80</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+              <span class="bi bi-chevron-left carousel-controls" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+              <span class="bi bi-chevron-right carousel-controls" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- right column: promo block -->
+      <div class="col-lg-4">
+        <div class="promo-block">
+          <div style="flex:1;">
+            <small style="opacity:.9">Watch our youtube channel</small>
+            <h2>The ElectroMaker show</h2>
+            <p>From creative projects to industry news, we've got you covered.</p>
+            <button class="btn btn-light btn-sm">Visit Channel</button>
+          </div>
+          <div style="width:130px;">
+            <img src="https://via.placeholder.com/130x130?text=Host" alt="host" style="width:100%; border-radius:10px; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-space"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-4" style="color:#7b8b96;">
+    <div class="container">
+      <small>© Demo ElectroMaker clone — use images & assets you own. This is a visual clone for learning.</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // optional: pause on hover for product carousel
+    (function(){
+      const prod = document.getElementById('productCarousel')
+      if(prod){
+        prod.addEventListener('mouseenter', ()=> bootstrap.Carousel.getInstance(prod).pause())
+        prod.addEventListener('mouseleave', ()=> bootstrap.Carousel.getInstance(prod).cycle())
+      }
+    })();
+  </script>
+</body>
+                    </html>
