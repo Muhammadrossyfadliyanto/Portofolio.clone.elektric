@@ -1,1 +1,146 @@
-doctype
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Maker Site</title>
+
+    <!-- bootstrap biar gampang styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- banner atas -->
+    <div class="top-banner text-center">
+        We typically ship your component the same day*
+    </div>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark main-nav py-3">
+        <div class="container">
+
+            <!-- logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <span class="fw-bold">electro<span class="text-success">{maker}</span></span>
+            </a>
+
+            <!-- tombol menu saat layar kecil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- link menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link1" href="#">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link1" href="#">Platforms</a></li>
+                    <li class="nav-item"><a class="nav-link1" href="#">Project Hub</a></li>
+                    <li class="nav-item"><a class="nav-link1" href="#">Videos</a></li>
+                    <li class="nav-item"><a class="nav-link1" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                </ul>
+                <a class="btn btn-success ms-3">Join us</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- menu kecil + search -->
+    <div class="container py-3">
+        <div class="row align-items-center">
+
+            <!-- mini menu -->
+            <div class="col-lg-6 d-flex gap-4 flex-wrap mb-3 mb-lg-0">
+                <a href="#" class="sub-link">Categories</a>
+                <a href="#" class="sub-link">Brands</a>
+                <a href="#" class="sub-link">FAQs</a>
+                <a href="#" class="sub-link">Help & Support</a>
+            </div>
+
+            <!-- search bar -->
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control py-2" placeholder="Search for a product or part number">
+                    <button class="btn btn-outline-secondary">🔍</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- carousel brand (yang jalan terus) -->
+    <div class="brand-carousel-wrapper">
+        <div class="brand-carousel">
+
+            <!-- logo nya -->
+            <img src="png/arduino.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/adafruit-shop-logo.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/m5stack-shop-logo.svg">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/seeed-studio-shop-logo.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/raspberry-pi-shop-logo.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/pimoroni-shop-logo.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/dfrobot-shop-logo.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/sparkfun-shop-logo.png">
+
+            <!-- copy biar kelihatan muter -->
+            <img src="png/arduino.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/adafruit-shop-logo.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/m5stack-shop-logo.svg">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/seeed-studio-shop-logo.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/raspberry-pi-shop-logo.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/pimoroni-shop-logo.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/dfrobot-shop-logo.png">
+            <img src="https://www.electromaker.io/images/shop/homepage/brand-logos/sparkfun-shop-logo.png">
+        </div>
+    </div>
+
+    <!-- hero text -->
+    <div class="container py-5 hero-section">
+        <h1 class="display-5">Much more than a component shop</h1>
+        <h1 class="display-5">
+            we're a <span class="text-navy fw-bold">Maker Community</span>
+        </h1>
+    </div>
+
+    <br>
+
+    <!-- carousel produk -->
+    <div id="carouselExample" class="carousel slide text-center" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="https://www.electromaker.io/images/home/category-images/adafruit-accessories.png" width="140" height="140" class="d-block mx-auto" alt="Adafruit">
+                <div class="mt-2 fw-medium">Adafruit Accessories</div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://www.electromaker.io/images/home/category-images/sparkfun-accessories.png" width="140" height="140" class="d-block mx-auto" alt="Sparkfun">
+                <div class="mt-2 fw-medium">Sparkfun Accessories</div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://www.electromaker.io/images/home/category-images/raspberry-pi-accessories.png" width="140" height="140" class="d-block mx-auto" alt="Raspberry Pi">
+                <div class="mt-2 fw-medium">Raspberry Pi Accessories</div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://www.electromaker.io/images/home/category-images/dfrobot-accessories.png" width="140" height="140" class="d-block mx-auto" alt="DFRobot Accessories">
+                <div class="mt-2 fw-medium">DFRobot Accessories</div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
